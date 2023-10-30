@@ -16,18 +16,15 @@
         "bin\\ffprobe.exe"
     ],
     "checkver": {
-        "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/latest",
+        "url": "https://api.github.com/repos/nanake/ffmpeg-tinderbox/releases",
+        "jsonpath": "$..browser_download_url",
         "regex": "ffmpeg-N-(?<version>\\d+)-git-(?<hash>[a-f\\d]+)-win64-nonfree-shared\\.7z"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
                 "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-$matchTime/ffmpeg-N-$version-git-$hash-win64-nonfree-shared.7z",
-                "extract_dir": "ffmpeg-N-$version-git-$hash-win64-nonfree-shared",
-                "hash": {
-                    "url": "$url.sha256",
-                    "regex": "([a-fA-F0-9]{64})"
-                }
+                "extract_dir": "ffmpeg-N-$version-git-$hash-win64-nonfree-shared"
             }
         }
     }
