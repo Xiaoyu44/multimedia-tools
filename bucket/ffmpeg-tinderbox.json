@@ -7,7 +7,7 @@
         "64bit": {
             "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-2023-06-07-21-24-n111033/ffmpeg-N-111033-git-f11515c77-win64-nonfree.7z",
             "hash": "E41998CBEABACC30FC67C7F5104375A701F9B93382C718614C0E4E34D919525A",
-            "extract_dir": "ffmpeg-N-111033-git-f11515c77-win64-nonfree"
+            "extract_dir": "ffmpeg-N-111033-git-$hash-win64-nonfree"
         }
     },
     "bin": [
@@ -16,18 +16,15 @@
         "bin\\ffprobe.exe"
     ],
     "checkver": {
-        "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/latest",
-        "regex": "ffmpeg-N-(?<version>\\d+)-git-(?<hash>[a-f\\d]+)-win64-nonfree\\.7z"
+        "url": "https://api.github.com/repos/nanake/ffmpeg-tinderbox/releases",
+        "jsonpath": "$..browser_download_url",
+        "regex": "build-(?<time>[\\d-]+)-n(\\d+)/ffmpeg-N-(?<version>\\d+)-git-(?<hash>[a-f\\d]+)-win64-nonfree\\.7z"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-$matchTime/ffmpeg-N-$version-git-$hash-win64-nonfree.7z",
-                "extract_dir": "ffmpeg-N-$version-git-$hash-win64-nonfree",
-                "hash": {
-                    "url": "$url.sha256",
-                    "regex": "([a-fA-F0-9]{64})"
-                }
+                "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-$matchTime-n$version/ffmpeg-N-$version-git-$matchHash-win64-nonfree.7z",
+                "extract_dir": "ffmpeg-N-$version-git-$hash-win64-nonfree"
             }
         }
     }
