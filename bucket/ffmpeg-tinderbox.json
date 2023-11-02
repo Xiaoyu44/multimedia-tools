@@ -7,7 +7,7 @@
         "64bit": {
             "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-2023-11-01-21-22-n112659/ffmpeg-N-112659-git-d06fd18f8-win64-nonfree.7z",
             "hash": "ce76b536992c01ce259b52429f7a28be94b20e62284b7a467226fa59023dc384",
-            "extract_dir": "ffmpeg-N-112659-git-$hash-win64-nonfree"
+            "extract_dir": "ffmpeg-N-112659-git-win64-nonfree"
         }
     },
     "bin": [
@@ -24,7 +24,7 @@
         "architecture": {
             "64bit": {
                 "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-$matchTime-n$version/ffmpeg-N-$version-git-$matchHash-win64-nonfree.7z",
-                "extract_dir": "ffmpeg-N-$version-git-$hash-win64-nonfree"
+                "extract_dir": "ffmpeg-N-$version-git-win64-nonfree"
             }
         }
     }
