@@ -5,9 +5,9 @@
     "license": "FDK-AAC",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-2024-02-29-21-21-n113854/ffmpeg-N-113854-git-194414f62-win64-nonfree-shared.7z",
-            "hash": "d0e60df027ea29ba713c421dc85bd03a3c897e991e96d53f769eb6f26e99245d",
-            "extract_dir": "ffmpeg-N-113854-git-194414f62-win64-nonfree-shared"
+            "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-2024-05-17-21-19-n115254/ffmpeg-N-115254-git-727a60315-win64-nonfree-shared.tar.zst",
+            "hash": "BAF1448522DA53F06EFEAF9B960B5169118592DD9792204D597F7D7B0F75CEE9",
+            "extract_dir": "ffmpeg-N-115254-git-727a60315-win64-nonfree-shared"
         }
     },
     "bin": [
@@ -18,12 +18,12 @@
     "checkver": {
         "url": "https://api.github.com/repos/nanake/ffmpeg-tinderbox/releases",
         "jsonpath": "$..browser_download_url",
-        "regex": "build-(?<time>[\\d-]+)-n(\\d+)/ffmpeg-N-(?<version>\\d+)-git-(?<hash>[a-f\\d]+)-win64-nonfree-shared\\.7z"
+        "regex": "build-(?<time>[\\d-]+)-n(\\d+)/ffmpeg-N-(?<version>\\d+)-git-(?<hash>[a-f\\d]+)-win64-nonfree-shared\\.tar\\.zst"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-$matchTime-n$version/ffmpeg-N-$version-git-$matchHash-win64-nonfree-shared.7z",
+                "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-$matchTime-n$version/ffmpeg-N-$version-git-$matchHash-win64-nonfree-shared.tar.zst",
                 "extract_dir": "ffmpeg-N-$version-git-$matchHash-win64-nonfree-shared"
             }
         }
