@@ -5,9 +5,9 @@
     "license": "FDK-AAC",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-2024-05-17-21-19-n115254/ffmpeg-N-115254-git-727a60315-win64-nonfree-shared.tar.zst",
-            "hash": "BAF1448522DA53F06EFEAF9B960B5169118592DD9792204D597F7D7B0F75CEE9",
-            "extract_dir": "ffmpeg-N-115254-git-727a60315-win64-nonfree-shared"
+            "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-2024-05-16-21-20-n115240/ffmpeg-N-115240-git-d4083ecb7-win64-nonfree-shared.tar.zst",
+            "hash": "2188857955721E31885F9988850AEB459CB3A19C2086322244CEE884FB6D3FB0",
+            "extract_dir": "ffmpeg-N-115240-git-d4083ecb7-win64-nonfree-shared.tar.zst"
         }
     },
     "bin": [
