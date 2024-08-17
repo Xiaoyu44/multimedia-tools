@@ -1,0 +1,47 @@
+{
+    "version": "latest",
+    "description": "A video processing framework with simplicity in mind",
+    "homepage": "https://www.vapoursynth.com",
+    "license": "LGPL-2.1-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/vapoursynth/vapoursynth/releases/download/R$version/Install-Portable-VapourSynth-R$version.ps1",
+            "hash": "auto"
+        }
+    },
+    "pre_install": [
+        "Set-ExecutionPolicy Bypass -Scope Process -Force",
+        "$VSVersion = (Invoke-RestMethod -Uri 'https://api.github.com/repos/vapoursynth/vapoursynth/releases/latest').tag_name",
+        "$VSVersion = $VSVersion.Replace('R', '')",
+        "$TargetFolder = \"$dir\\vapoursynth-portable-$VSVersion\"",
+        "Invoke-WebRequest -Uri \"https://github.com/vapoursynth/vapoursynth/releases/download/R$VSVersion/Install-Portable-VapourSynth-R$VSVersion.ps1\" -OutFile \"$dir\\Install-Portable-VapourSynth-$VSVersion.ps1\""
+    ],
+    "installer": {
+        "script": [
+            "& \"$dir\\Install-Portable-VapourSynth-$VSVersion.ps1\" -TargetFolder \"$TargetFolder\" -Unattended"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "Remove-Item -Path \"$dir\\vapoursynth-portable-$VSVersion\" -Recurse -Force",
+            "Remove-Item -Path \"$dir\\Install-Portable-VapourSynth-$VSVersion.ps1\" -Force"
+        ]
+    },
+    "bin": [
+        "$dir\\vapoursynth-portable-$VSVersion\\AVFS.exe",
+        "$dir\\vapoursynth-portable-$VSVersion\\pfm-192-vapoursynth-win.exe",
+        "$dir\\vapoursynth-portable-$VSVersion\\VSPipe.exe",
+        "$dir\\vapoursynth-portable-$VSVersion\\vsrepo.py"
+    ],
+    "checkver": {
+        "github": "https://github.com/vapoursynth/vapoursynth",
+        "regex": "tag/R(\\d+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/vapoursynth/vapoursynth/releases/download/R$version/Install-Portable-VapourSynth-R$version.ps1"
+            }
+        }
+    }
+}
