@@ -1,12 +1,12 @@
 {
-    "version": "latest",
+    "version": "69",
     "description": "A video processing framework with simplicity in mind",
     "homepage": "https://www.vapoursynth.com",
     "license": "LGPL-2.1-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/vapoursynth/vapoursynth/releases/download/R$version/Install-Portable-VapourSynth-R$version.ps1",
-            "hash": "auto"
+            "url": "https://github.com/vapoursynth/vapoursynth/releases/download/R69/Install-Portable-VapourSynth-R69.ps1",
+            "hash": "594c2c700c85cc3e65124efb91b6b9c73fa3abcbec0b6cc49951a897adedc672"
         }
     },
     "pre_install": [
@@ -17,9 +17,7 @@
         "Invoke-WebRequest -Uri \"https://github.com/vapoursynth/vapoursynth/releases/download/R$VSVersion/Install-Portable-VapourSynth-R$VSVersion.ps1\" -OutFile \"$dir\\Install-Portable-VapourSynth-$VSVersion.ps1\""
     ],
     "installer": {
-        "script": [
-            "& \"$dir\\Install-Portable-VapourSynth-$VSVersion.ps1\" -TargetFolder \"$TargetFolder\" -Unattended"
-        ]
+        "script": "& \"$dir\\Install-Portable-VapourSynth-$VSVersion.ps1\" -TargetFolder \"$TargetFolder\" -Unattended"
     },
     "uninstaller": {
         "script": [
