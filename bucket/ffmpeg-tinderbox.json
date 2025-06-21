@@ -1,13 +1,13 @@
 {
-    "version": "119919",
+    "version": "119926",
     "description": "A complete, cross-platform solution to record, convert and stream audio and video.",
     "homepage": "https://ffmpeg.org",
     "license": "FDK-AAC",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-2025-06-19-21-24-n119919/ffmpeg-N-119919-git-45a30e036-win64-nonfree.tar.zst",
-            "hash": "146b00e4d262b36ece48f522d5c093b8891880c628a185b374d006a6fb03a0fe",
-            "extract_dir": "ffmpeg-N-119919-git-45a30e036-win64-nonfree"
+            "url": "https://github.com/nanake/ffmpeg-tinderbox/releases/download/build-2025-06-20-21-24-n119926/ffmpeg-N-119926-git-64e6f5d5f-win64-nonfree.tar.zst",
+            "hash": "1a15196e6b40d461acab0ef0308b2928d001ca826dd4329987db2d7448c1f5c5",
+            "extract_dir": "ffmpeg-N-119926-git-64e6f5d5f-win64-nonfree"
         }
     },
     "bin": [
