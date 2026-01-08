@@ -26,6 +26,12 @@ jobs:
           repository: ScoopInstaller/Scoop
           path: scoop_core
 
+      - name: Install required PowerShell modules
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Install-Module BuildHelpers -Repository PSGallery -Scope CurrentUser -Force
+
       - name: Run Bucket Tests
         shell: powershell
         run: |
@@ -50,6 +56,12 @@ jobs:
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
+
+      - name: Install required PowerShell modules
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Install-Module BuildHelpers -Repository PSGallery -Scope CurrentUser -Force
 
       - name: Run Bucket Tests
         shell: pwsh
