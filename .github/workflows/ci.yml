@@ -3,57 +3,57 @@ name: Tests
 on:
   push:
     branches:
-      - 'main'
-      - 'master'
+      - main
+      - master
   pull_request:
   workflow_dispatch:
 
 jobs:
-  test_powershell:
-    name: WindowsPowerShell
+  test_windows_powershell:
+    name: Windows PowerShell
     runs-on: windows-latest
+
     steps:
       - name: Checkout Bucket
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
           path: my_bucket
-      - name: Checkout Scoop
-        uses: actions/checkout@main
+
+      - name: Checkout Scoop Core
+        uses: actions/checkout@v4
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
-      - name: Init Test Suite
-        uses: potatoqualitee/psmodulecache@v5.1
-        with:
-          modules-to-cache: BuildHelpers
-          shell: powershell
-      - name: Test Bucket
+
+      - name: Run Bucket Tests
         shell: powershell
         run: |
-          $env:SCOOP_HOME="$(Convert-Path '.\scoop_core')"
+          $ErrorActionPreference = 'Stop'
+          $env:SCOOP_HOME = (Convert-Path '.\scoop_core')
           .\my_bucket\bin\test.ps1
+
+
   test_pwsh:
-    name: PowerShell
+    name: PowerShell (pwsh)
     runs-on: windows-latest
+
     steps:
       - name: Checkout Bucket
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
           path: my_bucket
-      - name: Checkout Scoop
-        uses: actions/checkout@main
+
+      - name: Checkout Scoop Core
+        uses: actions/checkout@v4
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
-      - name: Init Test Suite
-        uses: potatoqualitee/psmodulecache@v5.1
-        with:
-          modules-to-cache: BuildHelpers
-          shell: pwsh
-      - name: Test Bucket
+
+      - name: Run Bucket Tests
         shell: pwsh
         run: |
-          $env:SCOOP_HOME="$(Convert-Path '.\scoop_core')"
+          $ErrorActionPreference = 'Stop'
+          $env:SCOOP_HOME = (Convert-Path '.\scoop_core')
           .\my_bucket\bin\test.ps1
